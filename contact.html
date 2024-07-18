@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bimala Dhakal - Contact Me</title>
+    <link rel="icon" href="favicon_io/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f8ff;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      header {
+        background-color: #0056b3;
+        color: white;
+        padding: 1em 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .header-name {
+        margin-left: 1em;
+      }
+
+      .header-name a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .header-name h2 {
+        margin: 0;
+        font-size: 1.5em;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        margin-right: 1em;
+      }
+
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 4px 0;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: right;
+        margin: 0;
+      }
+
+      nav ul li {
+        margin: 0 1em;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #ffa500;
+      }
+
+      #nav-menu {
+        display: flex;
+      }
+
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+
+        #nav-menu {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          background-color: #0056b3;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        #nav-menu.show {
+          display: flex;
+        }
+
+        nav ul {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        nav ul li {
+          text-align: center;
+          margin: 0.5em 0;
+        }
+
+        nav ul li a {
+          padding: 1em 0;
+          width: 100%;
+          display: block;
+        }
+      }
+
+      .contact {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2em;
+        background-color: #e6f2ff;
+        min-height: 80vh;
+      }
+
+      .contact-form {
+        background-color: #fff;
+        padding: 2em;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+      }
+
+      .contact-form h2 {
+        margin-top: 0;
+      }
+
+      .contact-form input,
+      .contact-form select,
+      .contact-form textarea {
+        width: 100%;
+        padding: 1em;
+        margin: 0.5em 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .contact-form button {
+        background-color: #5c6bc0;
+        color: white;
+        padding: 1em 2em;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+      }
+
+      .contact-form button:hover {
+        background-color: #3f51b5;
+      }
+
+      .footer {
+        background-color: #003366;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        position: relative;
+        width: 100%;
+        bottom: 0;
+      }
+
+      .footer p {
+        margin: 0.5em 0;
+      }
+
+      .footer a {
+        color: #ffa500;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      .footer a:hover {
+        color: #ffb84d;
+      }
+
+      .social-icons {
+        margin-top: 1em;
+      }
+
+      .social-icons a {
+        margin: 0 0.5em;
+        color: #fff;
+        text-decoration: none;
+        transition: transform 0.3s;
+      }
+
+      .social-icons a:hover {
+        transform: scale(1.1);
+      }
+
+      .social-icon {
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        background-color: #0056b3;
+        border-radius: 50%;
+        padding: 0.5em;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .translate-btn {
+        margin-top: 1em;
+        padding: 0.5em 1em;
+        background-color: #0056b3;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .translate-btn:hover {
+        background-color: #003d80;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-name">
+        <h2><a href="index.html">Bimala Amgai</a></h2>
+      </div>
+      <nav>
+        <div class="hamburger" onclick="toggleMenu()">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul id="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="contact">
+      <form class="contact-form">
+        <h2>We'd love to help</h2>
+        <p>Reach out and we'll get in touch within 24 hours.</p>
+        <button class="translate-btn" type="button" onclick="toggleLanguage()">
+          नेपालीमा अनुवाद गर्नुहोस्
+        </button>
+        <div id="english">
+          <input
+            type="text"
+            name="firstName"
+            placeholder="First name"
+            required
+          />
+          <input type="text" name="lastName" placeholder="Last name" required />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email address"
+            required
+          />
+          <select name="teamSize" required>
+            <option value="" disabled selected>Preferred Meeting Style</option>
+            <option value="1-50">Phone Call</option>
+            <option value="51-100">WhatsApp or Viber</option>
+            <option value="101-200">In-person Meeting</option>
+          </select>
+          <select name="location" required>
+            <option value="" disabled selected>Location</option>
+            <option value="New Zealand">Gorkha</option>
+            <option value="Australia">Kathmandu</option>
+            <option value="USA">Dhading</option>
+            <option value="Canada">Chitwan</option>
+            <option value="UK">Pokhara</option>
+            <option value="Other">Other</option>
+          </select>
+          <textarea
+            name="message"
+            placeholder="Leave us a message..."
+            rows="4"
+            required
+          ></textarea>
+          <button type="submit">Send message</button>
+        </div>
+        <div id="nepali" style="display: none">
+          <input
+            type="text"
+            name="firstName"
+            placeholder="पहिलो नाम"
+            required
+          />
+          <input type="text" name="lastName" placeholder="थर" required />
+          <input type="email" name="email" placeholder="इमेल ठेगाना" required />
+          <select name="teamSize" required>
+            <option value="" disabled selected>
+              मीटिंग शैली छनोट गर्नुहोस्
+            </option>
+            <option value="1-50">फोन कल</option>
+            <option value="51-100">WhatsApp वा Viber</option>
+            <option value="101-200">व्यक्तिगत बैठक</option>
+          </select>
+          <select name="location" required>
+            <option value="" disabled selected>स्थान</option>
+            <option value="New Zealand">गोरखा</option>
+            <option value="Australia">काठमाडौं</option>
+            <option value="USA">धादिङ</option>
+            <option value="Canada">चितवन</option>
+            <option value="UK">पोखरा</option>
+            <option value="Other">अन्य</option>
+          </select>
+          <textarea
+            name="message"
+            placeholder="हाम्रो लागि सन्देश छोड्नुहोस्..."
+            rows="4"
+            required
+          ></textarea>
+          <button type="submit">सन्देश पठाउनुहोस्</button>
+        </div>
+      </form>
+    </section>
+
+    <div class="footer">
+      <div class="social-icons">
+        <a
+          class="social-icon"
+          href="https://www.facebook.com/bimala.amgai.5"
+          target="_blank"
+        >
+          <img
+            src="https://img.icons8.com/material-outlined/30/ffffff/facebook-new.png"
+            alt="Facebook"
+          />
+        </a>
+        <a
+          class="social-icon"
+          href="https://www.linkedin.com/in/bimala-amgai-30b587319/"
+          target="_blank"
+        >
+          <img
+            src="https://img.icons8.com/material-outlined/30/ffffff/linkedin.png"
+            alt="LinkedIn"
+          />
+        </a>
+        <a
+          class="social-icon"
+          href="https://wa.me/+9779856027416?text=Hello%20Mam"
+          target="_blank"
+        >
+          <img
+            src="https://img.icons8.com/material-outlined/30/ffffff/whatsapp.png"
+            alt="WhatsApp"
+          />
+        </a>
+        <a
+          class="social-icon"
+          href="viber://chat?number=%2B9779856027416"
+          target="_blank"
+        >
+          <img
+            src="https://img.icons8.com/material-outlined/30/ffffff/viber.png"
+            alt="Viber"
+          />
+        </a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Contact Me: <a href="tel:+977-9856027416">+977-9856027416</a></p>
+    </footer>
+
+    <script>
+      function toggleLanguage() {
+        const englishText = document.getElementById("english");
+        const nepaliText = document.getElementById("nepali");
+        if (englishText.style.display === "none") {
+          englishText.style.display = "block";
+          nepaliText.style.display = "none";
+        } else {
+          englishText.style.display = "none";
+          nepaliText.style.display = "block";
+        }
+      }
+
+      function toggleMenu() {
+        const navMenu = document.getElementById("nav-menu");
+        navMenu.classList.toggle("show");
+      }
+    </script>
+  </body>
+</html>

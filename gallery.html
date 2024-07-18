@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bimala Dhakal - Gallery</title>
+    <link rel="icon" href="favicon_io/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f8ff;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      header {
+        background-color: #0056b3;
+        color: white;
+        padding: 1em 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .header-name {
+        margin-left: 1em;
+      }
+
+      .header-name a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .header-name h2 {
+        margin: 0;
+        font-size: 1.5em;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+      }
+
+      .menu-icon {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        margin-right: 1em;
+      }
+
+      .menu-icon div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 4px 0;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: right;
+        margin: 0;
+      }
+
+      nav ul li {
+        margin: 0 1em;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #ffa500;
+      }
+
+      @media (max-width: 768px) {
+        .menu-icon {
+          display: flex;
+        }
+
+        nav ul {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          background-color: #0056b3;
+          position: absolute;
+          top: 60px;
+          left: 0;
+        }
+
+        nav ul li {
+          text-align: center;
+          margin: 1em 0;
+        }
+
+        nav ul li a {
+          display: block;
+          padding: 0.5em 0;
+        }
+      }
+
+      .gallery {
+        padding: 2em 1em;
+        background-color: #e6f2ff;
+        text-align: center;
+      }
+
+      .gallery-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1em;
+      }
+
+      .gallery-item {
+        background: white;
+        padding: 1em;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        flex: 1 1 calc(33% - 2em);
+        max-width: 300px;
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.05);
+      }
+
+      .gallery-item img {
+        max-width: 100%;
+        border-radius: 8px;
+      }
+
+      @media (max-width: 768px) {
+        .gallery-item {
+          flex: 1 1 calc(50% - 2em);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .gallery-item {
+          flex: 1 1 calc(100% - 2em);
+        }
+      }
+
+      .translate-btn {
+        margin-bottom: 1em;
+        padding: 0.5em 1em;
+        background-color: #003366;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .translate-btn:hover {
+        background-color: #001f33;
+      }
+
+      .footer {
+        background-color: #003366;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        position: relative;
+        width: 100%;
+        bottom: 0;
+      }
+
+      .footer p {
+        margin: 0.5em 0;
+      }
+
+      .footer a {
+        color: #ffa500;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      .footer a:hover {
+        color: #ffb84d;
+      }
+
+      .social-icons {
+        margin-top: 1em;
+      }
+
+      .social-icons a {
+        margin: 0 0.5em;
+        color: #fff;
+        text-decoration: none;
+        transition: transform 0.3s;
+      }
+
+      .social-icons a:hover {
+        transform: scale(1.1);
+      }
+
+      .social-icon {
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        background-color: #0056b3;
+        border-radius: 50%;
+        padding: 0.5em;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-name">
+        <h2><a href="index.html">Bimala Amgai</a></h2>
+      </div>
+      <nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul id="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="gallery" class="gallery">
+      <h2>Gallery</h2>
+      <button class="translate-btn" type="button" onclick="toggleLanguage()">
+        नेपालीमा अनुवाद गर्नुहोस्
+      </button>
+      <div id="english">
+        <div class="gallery-items">
+          <div class="gallery-item">
+            <img
+              src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/449027664_392695057115248_8947276405229160499_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ldpwskrcokIQ7kNvgFJUJl2&_nc_ht=scontent.fktm3-1.fna&oh=00_AYDPkRwvklK7eaiozD219OH1ecbz3xD6pILd9Tn3W14aBw&oe=669DD75F"
+              alt="Achievement 1"
+            />
+            <p>
+              Congratulations to Senior Agency Manager, MDRT award winner,
+              Bimala Amgai, for achieving the National Honor through Nepal Life
+              Insurance, Gorkha Branch, under the necessary first insurance
+              premium for the year 2080/81. 🌹💐 Wishing you more success and
+              hope you soon win the Nepal Life Samrat Medal!
+            </p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/417471381_386586264392794_5345253790741507626_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=hFzKq8MJYAMQ7kNvgFXlZC3&_nc_ht=scontent.fktm3-1.fna&oh=00_AYApx2k2Rux3rtn8FHAI9ct3qsakI_mk2JQWvCrtzUSbWQ&oe=669DF066"
+              alt="Achievement 2"
+            />
+            <p>
+              Heartfelt congratulations to Senior Agency Manager Bimala Amgai
+              for qualifying for the "SPECIAL TOUR" under the attractive scheme
+              for the month of Jestha from Nepal Life Insurance, Gorkha Branch!
+              🙏🎖️🏆️
+            </p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/366280006_358403844876703_8130312456115056963_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=bwYxQyhs_LoAX--zslV&_nc_ht=scontent.fktm3-1.fna&oh=00_AY-uTLM1X4o1pIZkN14pCv7jT5aMgjDQs-_FX7bBv_m8jQ&oe=669DBE2D"
+              alt="Achievement 3"
+            />
+            <p>
+              On the 22nd anniversary of Nepal Life Insurance, heartfelt
+              congratulations to all policyholders, and to Senior Agency Manager
+              Bimala Amgai for the excellent achievement of outstanding
+              business!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="nepali" style="display: none">
+        <div class="gallery-items">
+          <div class="gallery-item">
+            <img
+              src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/449027664_392695057115248_8947276405229160499_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ldpwskrcokIQ7kNvgFJUJl2&_nc_ht=scontent.fktm3-1.fna&oh=00_AYDPkRwvklK7eaiozD219OH1ecbz3xD6pILd9Tn3W14aBw&oe=669DD75F"
+              alt="Achievement 1"
+            />
+            <p>
+              वरिष्ठ एजेन्सी म्यानेजर, एमडीआरटी अवार्ड विजेता, बिमला अम्गाईलाई
+              २०८०/८१ वर्षको लागि पहिलो बीमा शुल्क आवश्यकतामा गोरखा शाखा, नेपाल
+              लाइफ इन्स्योरेन्स मार्फत राष्ट्रिय सम्मान हासिल गरेकोमा बधाई छ।
+              🌹💐 तपाईलाई थप सफलता चाहन्छु र आशा छ चाँडै नेपाल लाइफ सम्राट पदक
+              जित्नुहोस्!
+            </p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/417471381_386586264392794_5345253790741507626_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=hFzKq8MJYAMQ7kNvgFXlZC3&_nc_ht=scontent.fktm3-1.fna&oh=00_AYApx2k2Rux3rtn8FHAI9ct3qsakI_mk2JQWvCrtzUSbWQ&oe=669DF066"
+              alt="Achievement 2"
+            />
+            <p>
+              नेपाल लाइफ इन्स्योरेन्स, गोरखा शाखाबाट जेष्ठ महिनाको लागि आकर्षक
+              योजनामा "विशेष यात्रा" को लागि योग्य भएकोमा वरिष्ठ एजेन्सी
+              म्यानेजर बिमला अम्गाईलाई हार्दिक बधाई छ! 🙏🎖️🏆️
+            </p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/366280006_358403844876703_8130312456115056963_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=bwYxQyhs_LoAX--zslV&_nc_ht=scontent.fktm3-1.fna&oh=00_AY-uTLM1X4o1pIZkN14pCv7jT5aMgjDQs-_FX7bBv_m8jQ&oe=669DBE2D"
+              alt="Achievement 3"
+            />
+            <p>
+              नेपाल लाइफ इन्स्योरेन्सको २२औं वार्षिकोत्सवको अवसरमा सबै
+              बीमितहरूलाई हार्दिक बधाई, र वरिष्ठ एजेन्सी म्यानेजर बिमला
+              अम्गाईलाई उत्कृष्ट व्यापारको उत्कृष्ट उपलब्धिको लागि हार्दिक बधाई!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>
+        &copy; 2024 Bimala Dhakal. All rights reserved. | Designed by Bimala
+        Dhakal
+      </p>
+      <div class="social-icons">
+        <a
+          href="https://www.facebook.com/bimala.dhakal"
+          target="_blank"
+          class="social-icon"
+          >FB</a
+        >
+        <a
+          href="https://www.linkedin.com/in/bimala-dhakal"
+          target="_blank"
+          class="social-icon"
+          >LI</a
+        >
+        <a
+          href="https://www.instagram.com/bimala.dhakal"
+          target="_blank"
+          class="social-icon"
+          >IG</a
+        >
+      </div>
+    </footer>
+
+    <script>
+      function toggleLanguage() {
+        const english = document.getElementById("english");
+        const nepali = document.getElementById("nepali");
+        const btn = document.querySelector(".translate-btn");
+
+        if (english.style.display === "none") {
+          english.style.display = "block";
+          nepali.style.display = "none";
+          btn.textContent = "नेपालीमा अनुवाद गर्नुहोस्";
+        } else {
+          english.style.display = "none";
+          nepali.style.display = "block";
+          btn.textContent = "Translate to English";
+        }
+      }
+
+      function toggleMenu() {
+        const navMenu = document.getElementById("nav-menu");
+        navMenu.style.display =
+          navMenu.style.display === "flex" ? "none" : "flex";
+      }
+    </script>
+  </body>
+</html>

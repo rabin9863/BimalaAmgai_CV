@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bimala Dhakal - About Me</title>
+    <link rel="icon" href="favicon_io/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Add your existing styles here */
+
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f8ff;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      header {
+        background-color: #0056b3;
+        color: white;
+        padding: 1em 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .header-name {
+        margin-left: 1em;
+      }
+
+      .header-name a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .header-name h2 {
+        margin: 0;
+        font-size: 1.5em;
+      }
+
+      nav {
+        margin-right: 1em;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: right;
+        margin: 0;
+      }
+
+      nav ul li {
+        margin: 0 1em;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #ffa500;
+      }
+
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 4px 0;
+        transition: all 0.3s ease;
+      }
+
+      .about {
+        padding: 2em 1em;
+        background-color: #e6f2ff;
+        text-align: center;
+      }
+
+      .about-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .about-content img {
+        max-width: 300px;
+        border-radius: 10px;
+        margin: 1em;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-text {
+        max-width: 600px;
+        text-align: left;
+        margin: 1em;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 1.5em;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-text p {
+        margin-bottom: 1em;
+      }
+
+      .footer {
+        background-color: #003366;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        position: relative;
+        width: 100%;
+        bottom: 0;
+      }
+
+      .footer p {
+        margin: 0.5em 0;
+      }
+
+      .footer a {
+        color: #ffa500;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      .footer a:hover {
+        color: #ffb84d;
+      }
+
+      .social-icons {
+        margin-top: 1em;
+      }
+
+      .social-icons a {
+        margin: 0 0.5em;
+        color: #fff;
+        text-decoration: none;
+        transition: transform 0.3s;
+      }
+
+      .social-icons a:hover {
+        transform: scale(1.1);
+      }
+
+      .social-icon {
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        background-color: #0056b3;
+        border-radius: 50%;
+        padding: 0.5em;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .translate-btn {
+        margin-top: 1em;
+        padding: 0.5em 1em;
+        background-color: #0056b3;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .translate-btn:hover {
+        background-color: #003d80;
+      }
+
+      @media (max-width: 768px) {
+        .about-content {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .about-content img {
+          max-width: 80%;
+        }
+
+        nav ul {
+          flex-direction: column;
+          display: none;
+          background-color: #0056b3;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          width: 100%;
+          text-align: center;
+        }
+
+        nav ul.show {
+          display: flex;
+        }
+
+        nav ul li {
+          margin: 1em 0;
+        }
+
+        .menu-toggle {
+          display: flex;
+          margin-right: 1em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-name">
+        <h2><a href="index.html">Bimala Amgai</a></h2>
+      </div>
+      <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="about" class="about">
+      <h2>About Me</h2>
+      <button class="translate-btn" onclick="toggleLanguage()">
+        नेपालीमा अनुवाद गर्नुहोस्
+      </button>
+      <div class="about-content">
+        <img
+          src="https://scontent.fktm19-1.fna.fbcdn.net/v/t39.30808-6/419661399_2843672542449431_4485153008799356444_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=2AYbEp7-6iUQ7kNvgEJzbso&_nc_ht=scontent.fktm19-1.fna&oh=00_AYBtkLpSiteOA3Ci8sP-hLxCllJCT4DWBrvnQrVoYEW9aQ&oe=669D40A0"
+          alt="Bimala Dhakal"
+        />
+        <div class="about-text">
+          <div id="english">
+            <p>
+              Hello! I am <strong>Bimala Amgai</strong>, a dedicated and
+              experienced <strong>Senior Agency Manager</strong> at Nepal Life
+              Company with over <strong>20 years of experience</strong> in the
+              life insurance industry. Since starting my career in
+              <strong>2005</strong>, I have worked tirelessly to help clients
+              understand and achieve their financial goals through tailored life
+              insurance solutions.
+            </p>
+            <p>
+              I am proud to have received the <strong>MDRT Award</strong> four
+              times, which reflects my commitment to excellence in client
+              service and professional growth. I have also cleared my
+              <strong>Master's degree</strong>, further solidifying my expertise
+              in this field.
+            </p>
+            <p>
+              With a strong passion for <strong>building relationships</strong>,
+              I have successfully served over <strong>4000+ clients</strong> and
+              built <strong>1000+ agencies</strong>. My goal is to foster trust
+              with my clients, ensuring they feel confident in their financial
+              decisions.
+            </p>
+            <p>
+              I believe that <strong>life insurance</strong> is a crucial part
+              of any financial plan, and I am committed to making this essential
+              service accessible and understandable for everyone. In my free
+              time, I enjoy <strong>talking with people</strong> and
+              <strong>traveling</strong>, which enriches my understanding of
+              diverse needs and perspectives.
+            </p>
+            <p>
+              <strong>Contact Details:</strong><br />
+              Email:
+              <a href="mailto:bimalaamgai03@gmail.com"
+                >bimalaamgai03@gmail.com</a
+              ><br />
+              <strong>Phone:</strong>
+              <a href="tel:+977-9856027416">+977-9856027416</a>
+            </p>
+          </div>
+          <div id="nepali" style="display: none">
+            <p>
+              नमस्कार! म <strong>बिमला अमगाई</strong>, नेपाल लाइफ कम्पनीमा
+              <strong>वरिष्ठ एजेन्सी व्यवस्थापक</strong>को रूपमा २० वर्षभन्दा
+              बढीको अनुभवका साथ समर्पित र अनुभवी व्यक्तिका रूपमा कार्यरत छु।
+              २००५ मा मेरो करियर सुरु गरेदेखि, मैले ग्राहकहरूलाई जीवन बीमा
+              समाधानहरूको माध्यमबाट आर्थिक लक्ष्यहरू बुझ्न र प्राप्त गर्न मद्दत
+              गर्न tirelessly काम गरिरहेको छु।
+            </p>
+            <p>
+              म <strong>MDRT पुरस्कार</strong> चार पटक प्राप्त गरेकोमा गर्व
+              गर्दछु, जसले ग्राहक सेवामा र व्यावसायिक विकासमा मेरो उत्कृष्टता
+              प्रति प्रतिबद्धता दर्शाउँछ। मैले मेरो
+              <strong>Master's डिग्री</strong> पनि सफलतापूर्वक पास गरेको छु,
+              जसले यस क्षेत्रमा मेरो विशेषज्ञता थप सुदृढ गरेको छ।
+            </p>
+            <p>
+              सम्बन्ध निर्माणमा गहिरो चासोका साथ, मैले
+              <strong>४०००+ भन्दा बढी ग्राहक</strong> लाई सफलतापूर्वक सेवा
+              पुर्याएको छु र <strong>१०००+ एजेन्सी</strong>
+              स्थापना गरेको छु। मेरो लक्ष्य भनेको मेरो ग्राहकहरूसँग विश्वास
+              जगाउनु हो, जसले गर्दा उनीहरू आफ्ना आर्थिक निर्णयहरूमा आत्मविश्वास
+              महसुस गर्न सकून्।
+            </p>
+            <p>
+              म विश्वास गर्छु कि <strong>जीवन बीमा</strong> कुनै पनि आर्थिक
+              योजनाको एक महत्वपूर्ण भाग हो, र म यो आवश्यक सेवालाई सबैका लागि
+              पहुँचयोग्य र बुझ्न योग्य बनाउन प्रतिबद्ध छु। मेरो फुर्सदको समयमा,
+              म मानिसहरूसँग कुरा गर्न र यात्रा गर्न रमाउँछु, जसले मलाई विविध
+              आवश्यकताहरू र दृष्टिकोणहरूको बुझाइमा समृद्धि दिन्छ।
+            </p>
+            <p>
+              <strong>सम्पर्क विवरण:</strong><br />
+              इमेल:
+              <a href="mailto:bimalaamgai03@gmail.com"
+                >bimalaamgai03@gmail.com</a
+              ><br />
+              <strong>फोन:</strong>
+              <a href="tel:+977-9856027416">+977-9856027416</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div class="social-icons">
+        <a
+          class="social-icon"
+          href="https://www.facebook.com/bimala.amgai.5"
+          target="_blank"
+        >
+          <img
+            src="https://img.icons8.com/material-outlined/30/ffffff/facebook-new.png"
+            alt="Facebook"
+          />
+        </a>
+        <a
+          class="social-icon"
+          href="https://www.linkedin.com/in/bimala-amgai-30b587319/"
+          target="_blank"
+        >
+          <img
+            src="https://img.icons8.com/material-outlined/30/ffffff/linkedin.png"
+            alt="LinkedIn"
+          />
+        </a>
+        <a
+          class="social-icon"
+          href="https://wa.me/+9779856027416?text=Hello%20Mam"
+          target="_blank"
+        >
+          <img
+            src="https://img.icons8.com/material-outlined/30/ffffff/whatsapp.png"
+            alt="WhatsApp"
+          />
+        </a>
+        <a
+          class="social-icon"
+          href="viber://chat?number=%2B9779856027416"
+          target="_blank"
+        >
+          <img
+            src="https://img.icons8.com/material-outlined/30/ffffff/viber.png"
+            alt="Viber"
+          />
+        </a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Contact Me: <a href="tel:+977-9856027416">+977-9856027416</a></p>
+    </footer>
+
+    <script>
+      function toggleLanguage() {
+        const englishText = document.getElementById("english");
+        const nepaliText = document.getElementById("nepali");
+        if (englishText.style.display === "none") {
+          englishText.style.display = "block";
+          nepaliText.style.display = "none";
+        } else {
+          englishText.style.display = "none";
+          nepaliText.style.display = "block";
+        }
+      }
+
+      function toggleMenu() {
+        const navMenu = document.getElementById("nav-menu");
+        navMenu.classList.toggle("show");
+      }
+    </script>
+  </body>
+</html>
